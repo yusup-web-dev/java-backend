@@ -20,7 +20,6 @@ public class Pembayaran_siswa_xiirpl2 {
            try{
     this.Connect = DriverManager.getConnection
     ("jdbc:mysql://localhost:3306/dblatihan_xiirpl2", "root", "");
-    JOptionPane.showMessageDialog(null, "Koneksi Berhasil");
      }catch (Exception e){
          JOptionPane.showMessageDialog(null, "Gagal Koneksi");
          System.out.println(e.getMessage());

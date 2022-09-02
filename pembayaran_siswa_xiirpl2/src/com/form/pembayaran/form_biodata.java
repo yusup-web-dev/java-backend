@@ -20,6 +20,7 @@ public class form_biodata extends javax.swing.JFrame {
         new code_biodata().bersih(this);
         new code_biodata().kunci(this);
         new code_biodata().tampildata(this);
+        new code_biodata().tampil_jurusan(this);
     }
 
     /**

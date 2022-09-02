@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.form.pembayaran;
-
+import com.code.pembayaran.code_jurusan;
 /**
  *
  * @author rpl
@@ -16,6 +16,9 @@ public class form_jurusan extends javax.swing.JFrame {
      */
     public form_jurusan() {
         initComponents();
+        new code_jurusan().kunci(this);
+        new code_jurusan().bersih(this);
+        new code_jurusan().tampildata(this);
     }
 
     /**
@@ -107,10 +110,10 @@ public class form_jurusan extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jtablejurusan);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 220, 150));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 350, 150));
 
         jLabel6.setText("Cari KD Jurusn");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, 10));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, 10));
 
         jtkdjurusan.setText("jTextField1");
         getContentPane().add(jtkdjurusan, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, -1));
@@ -125,7 +128,7 @@ public class form_jurusan extends javax.swing.JFrame {
         getContentPane().add(jtjmlkelas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 190, -1));
 
         jtcarikdjurusan.setText("jTextField5");
-        getContentPane().add(jtcarikdjurusan, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 140, -1));
+        getContentPane().add(jtcarikdjurusan, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 140, -1));
 
         jbclose.setText("Close");
         jbclose.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +136,7 @@ public class form_jurusan extends javax.swing.JFrame {
                 jbcloseActionPerformed(evt);
             }
         });
-        getContentPane().add(jbclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 80, -1));
+        getContentPane().add(jbclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

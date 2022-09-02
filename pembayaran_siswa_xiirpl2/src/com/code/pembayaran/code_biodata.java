@@ -52,8 +52,8 @@ public class code_biodata {
         bk.jtnama.setEnabled(true);
         bk.jtalamat.setEnabled(true);
         bk.jtnotelfon.setEnabled(true);
-        bk.jcjeniskelamin.setEnabled(false);
-        bk.jckdjurusan.setEnabled(false);
+        bk.jcjeniskelamin.setEnabled(true);
+        bk.jckdjurusan.setEnabled(true);
         bk.jtcarinis.setEnabled(true);
         bk.jbsimpan.setEnabled(true);
         bk.jtnis.requestFocus(true);
@@ -81,6 +81,25 @@ public class code_biodata {
                 } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "Data gagal tampil" + e);                   
                }
+      }
+      
+      
+      public void tampil_jurusan(form_biodata tj){
+          tj.jckdjurusan.removeAllItems();
+          try{
+              String sql = "select*from jurusan";
+              Statement stat = con.createStatement();
+              ResultSet res = stat.executeQuery(sql);
+              while (res.next()) {
+                  tj.jckdjurusan.addItem(res.getString("kd_jurusan"));
+              }
+              res.last();
+              int jumlahdata = res.getRow();
+              res.first();
+              
+          } catch (Exception e) {
+              
+          }
       }
 }
       
