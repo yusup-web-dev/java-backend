@@ -101,5 +101,51 @@ public class code_biodata {
               
           }
       }
+      
+      public void simpan(form_biodata s){
+          if (s.jtnis.getText().isEmpty()
+          || s.jtnama.getText().isEmpty()
+          || s.jtalamat.getText().isEmpty()
+          || s.jtnotelfon.getText().isEmpty()
+          || s.jcjeniskelamin.getSelectedItem().equals("-Pilihan")
+          || s.jckdjurusan.getSelectedItem().equals("-Pilihan")
+           ) {
+              JOptionPane.showMessageDialog(null, "Harap Lengkapi Data", "Warning",
+              JOptionPane.INFORMATION_MESSAGE );
+          } else {
+              String nis = s.jtnis.getText();
+              String nama = s.jtnama.getText();
+              String alamat = s.jtalamat.getText();
+              String notelf = s.jtnotelfon.getText();
+              String jakel = (String) s.jcjeniskelamin.getSelectedItem();
+              String kdjur = (String)  s.jckdjurusan.getSelectedItem();
+              
+              try {
+                  
+                  String sql = "insert into biodata(nis,nama,alamat,no_telpon,jenis_kelamin,kd_jurusan)value"
+                          + "('"+nis+"','"+nama+"','"+alamat+"','"+notelf+"',"
+                          + "'"+jakel+"','"+kdjur+"')";
+                  
+                  stat = con.createStatement();
+                  stat.execute(sql);
+                  bersih(s);
+                  JOptionPane.showMessageDialog(null,"Data Tersimpan");
+                  tampildata(s);
+
+                  
+              }catch (Exception e){
+                  JOptionPane.showMessageDialog(null, "Proses Menyimpan Gagal",
+                          "Error", JOptionPane.ERROR_MESSAGE);
+                  System.out.println(e.getMessage());
+                  e.printStackTrace();
+                  
+                  
+              }
+          } 
+
+      }
 }
+
+
+
       

@@ -21,6 +21,7 @@ public class form_biodata extends javax.swing.JFrame {
         new code_biodata().kunci(this);
         new code_biodata().tampildata(this);
         new code_biodata().tampil_jurusan(this);
+         new code_biodata().simpan(this);
     }
 
     /**
@@ -123,6 +124,11 @@ public class form_biodata extends javax.swing.JFrame {
         getContentPane().add(jbhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
 
         jbsimpan.setText("Simpan");
+        jbsimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsimpanActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
 
         jtablebiodata.setModel(new javax.swing.table.DefaultTableModel(
@@ -168,6 +174,13 @@ public class form_biodata extends javax.swing.JFrame {
         new code_biodata().bersih(this);
         new code_biodata().buka_kunci(this);
     }//GEN-LAST:event_jbtambahActionPerformed
+
+    private void jbsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsimpanActionPerformed
+        // TODO add your handling code here:
+       
+         new code_biodata().simpan(this);
+           new code_biodata().bersih(this);
+    }//GEN-LAST:event_jbsimpanActionPerformed
 
     /**
      * @param args the command line arguments
