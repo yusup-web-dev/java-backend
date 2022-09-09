@@ -145,7 +145,7 @@ public class form_biodata extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jtablebiodata);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 370, 110));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 410, 110));
 
         jLabel8.setText("Cari NIS");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
@@ -183,12 +183,14 @@ public class form_biodata extends javax.swing.JFrame {
 
     private void jbsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsimpanActionPerformed
           // TODO add your handling code here:
-        new code_biodata().simpan(this);
+           new code_biodata().simpan(this);
            new code_biodata().bersih(this);
     }//GEN-LAST:event_jbsimpanActionPerformed
 
     private void jtcarinisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtcarinisActionPerformed
         // TODO add your handling code here:
+          new code_biodata().cari_data(this);
+           new code_biodata().buka_kunci(this);
     }//GEN-LAST:event_jtcarinisActionPerformed
 
     /**
