@@ -71,4 +71,40 @@ public class code_jurusan {
       JOptionPane.showMessageDialog(null, "Data gagal tampil" + e);                   
                }
       }
+        public void simpan(form_jurusan s){
+          if (s.jtkdjurusan.getText().isEmpty()
+          || s.jtnamajurusan.getText().isEmpty()
+          || s.jtketuajurusan.getText().isEmpty()
+          || s.jtjmlkelas.getText().isEmpty()
+           ) {
+              JOptionPane.showMessageDialog(null, "Harap Lengkapi Data", "Warning",
+              JOptionPane.INFORMATION_MESSAGE );
+          } else {
+              String kdjur = s.jtkdjurusan.getText();
+              String namajur = s.jtnamajurusan.getText();
+              String ketuajur = s.jtketuajurusan.getText();
+              String jmlkelas = s.jtjmlkelas.getText();
+              
+              try {
+                  
+                  String sql = "insert into jurusan(kd_jurusan,nama_jurusan,ketua_jurusan)value"
+                          + "('" + kdjur + "','" + namajur + "','" + ketuajur + "','" + jmlkelas + "')";
+                  
+                  stat = con.createStatement();
+                  stat.execute(sql);
+                  bersih(s);
+                  JOptionPane.showMessageDialog(null,"Data Tersimpan");
+                  tampildata(s);
+
+                  
+              }catch (Exception e){
+                  JOptionPane.showMessageDialog(null, "Proses Menyimpan Gagal",
+                          "Error", JOptionPane.ERROR_MESSAGE);
+                  System.out.println(e.getMessage());
+                  e.printStackTrace();
 }
+           }
+          } 
+
+      }
+

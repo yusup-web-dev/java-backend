@@ -21,7 +21,8 @@ public class form_biodata extends javax.swing.JFrame {
         new code_biodata().kunci(this);
         new code_biodata().tampildata(this);
         new code_biodata().tampil_jurusan(this);
-         new code_biodata().simpan(this);
+        new code_biodata().simpan(this);
+        new code_biodata().cari_data(this);
     }
 
     /**
@@ -144,12 +145,17 @@ public class form_biodata extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jtablebiodata);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 230, 110));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 370, 110));
 
         jLabel8.setText("Cari NIS");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
 
         jtcarinis.setText("jTextField4");
+        jtcarinis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtcarinisActionPerformed(evt);
+            }
+        });
         getContentPane().add(jtcarinis, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 130, 20));
 
         jbclose.setText("Close");
@@ -176,11 +182,14 @@ public class form_biodata extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtambahActionPerformed
 
     private void jbsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsimpanActionPerformed
-        // TODO add your handling code here:
-       
-         new code_biodata().simpan(this);
+          // TODO add your handling code here:
+        new code_biodata().simpan(this);
            new code_biodata().bersih(this);
     }//GEN-LAST:event_jbsimpanActionPerformed
+
+    private void jtcarinisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtcarinisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtcarinisActionPerformed
 
     /**
      * @param args the command line arguments

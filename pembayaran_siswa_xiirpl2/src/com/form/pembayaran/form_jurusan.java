@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.form.pembayaran;
+import com.code.pembayaran.code_biodata;
 import com.code.pembayaran.code_jurusan;
 /**
  *
@@ -76,7 +77,7 @@ public class form_jurusan extends javax.swing.JFrame {
         jLabel2.setText("KD Jurusan");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
-        jLabel3.setText("Nama Jurusa");
+        jLabel3.setText("Nama Jurusan");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         jLabel4.setText("Ketua Jurusan");
@@ -86,6 +87,11 @@ public class form_jurusan extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         jbtambah.setText("Tambah");
+        jbtambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtambahActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbtambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         jbubah.setText("Ubah");
@@ -95,6 +101,11 @@ public class form_jurusan extends javax.swing.JFrame {
         getContentPane().add(jbhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
         jbsimpan.setText("Simpan");
+        jbsimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsimpanActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         jtablejurusan.setModel(new javax.swing.table.DefaultTableModel(
@@ -146,6 +157,18 @@ public class form_jurusan extends javax.swing.JFrame {
         new form_menu_utama().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbcloseActionPerformed
+
+    private void jbtambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtambahActionPerformed
+        // TODO add your handling code here:
+         new code_jurusan().bersih(this);
+        new code_jurusan().buka_kunci(this);
+    }//GEN-LAST:event_jbtambahActionPerformed
+
+    private void jbsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsimpanActionPerformed
+        // TODO add your handling code here:
+         new code_jurusan().simpan(this);
+           new code_jurusan().bersih(this);
+    }//GEN-LAST:event_jbsimpanActionPerformed
 
     /**
      * @param args the command line arguments

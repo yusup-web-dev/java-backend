@@ -144,6 +144,43 @@ public class code_biodata {
           } 
 
       }
+      
+      public void cari_data(form_biodata cd){
+          
+          DefaultTableModel tabbiodata = new DefaultTableModel();
+          
+          tabbiodata.addColumn("NIS");
+          tabbiodata.addColumn("Nama");
+          tabbiodata.addColumn("Alamat");
+          tabbiodata.addColumn("No Telfon");
+          tabbiodata.addColumn("Jenis Kelamin");
+          tabbiodata.addColumn("Kode Jurusan");
+          
+          try{
+               String cari = cd.jtcarinis.getText();
+               Statement stat = this.con.createStatement();
+               String sql = "select*from biodata where nis like '%" + cari + "%'";
+               ResultSet res = stat.executeQuery(sql);
+                while (res.next()) {
+                  tabbiodata.addRow(new Object[]{
+                      res.getString(1),  res.getString(2),
+                      res.getString(3),  res.getString(4),
+                      res.getString(5),  res.getString(6)
+                  });
+                  
+                  cd.jtnis.setText(res.getString(1));
+                  cd.jtnama.setText(res.getString(2));
+                  cd.jtalamat.setText(res.getString(3));
+                  cd.jtnotelfon.setText(res.getString(4));
+                  cd.jcjeniskelamin.setSelectedItem(res.getString(5));
+                  cd.jckdjurusan.setSelectedItem(res.getString(6));
+                  
+                 }
+                cd.jtablebiodata.setModel(tabbiodata);
+          } catch (Exception e) {
+              JOptionPane.showMessageDialog(null, "Gagal Cari Data" + e);
+          }
+      }
 }
 
 
