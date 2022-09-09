@@ -21,7 +21,6 @@ public class form_biodata extends javax.swing.JFrame {
         new code_biodata().kunci(this);
         new code_biodata().tampildata(this);
         new code_biodata().tampil_jurusan(this);
-        new code_biodata().simpan(this);
         new code_biodata().cari_data(this);
     }
 
@@ -59,6 +58,7 @@ public class form_biodata extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jtcarinis = new javax.swing.JTextField();
         jbclose = new javax.swing.JButton();
+        jbcari = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -143,6 +143,11 @@ public class form_biodata extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtablebiodata.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtablebiodataMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jtablebiodata);
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 410, 110));
@@ -166,6 +171,14 @@ public class form_biodata extends javax.swing.JFrame {
         });
         getContentPane().add(jbclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
 
+        jbcari.setText("cari");
+        jbcari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbcariActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbcari, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -179,6 +192,9 @@ public class form_biodata extends javax.swing.JFrame {
         // TODO add your handling code here:
         new code_biodata().bersih(this);
         new code_biodata().buka_kunci(this);
+         new code_biodata().tampildata(this);
+        jbubah.setEnabled(false);
+        jbhapus.setEnabled(false);
     }//GEN-LAST:event_jbtambahActionPerformed
 
     private void jbsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsimpanActionPerformed
@@ -189,9 +205,26 @@ public class form_biodata extends javax.swing.JFrame {
 
     private void jtcarinisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtcarinisActionPerformed
         // TODO add your handling code here:
-          new code_biodata().cari_data(this);
+           new code_biodata().cari_data(this);
            new code_biodata().buka_kunci(this);
+           jbubah.setEnabled(true);
+           jbhapus.setEnabled(true);
+           jbsimpan.setEnabled(false);
     }//GEN-LAST:event_jtcarinisActionPerformed
+
+    private void jbcariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcariActionPerformed
+        // TODO add your handling code here:
+           new code_biodata().cari_data(this);
+           new code_biodata().buka_kunci(this);
+    }//GEN-LAST:event_jbcariActionPerformed
+
+    private void jtablebiodataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtablebiodataMouseClicked
+        // TODO add your handling code here:
+        new code_biodata().klik_table(this);
+        new code_biodata().buka_kunci(this);
+        jbsimpan.setEnabled(false);
+                
+    }//GEN-LAST:event_jtablebiodataMouseClicked
 
     /**
      * @param args the command line arguments
@@ -241,6 +274,7 @@ public class form_biodata extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jbcari;
     private javax.swing.JButton jbclose;
     public javax.swing.JButton jbhapus;
     public javax.swing.JButton jbsimpan;

@@ -181,6 +181,22 @@ public class code_biodata {
               JOptionPane.showMessageDialog(null, "Gagal Cari Data" + e);
           }
       }
+      
+      
+      public void klik_table(form_biodata kt) {
+          int row = kt.jtablebiodata.getSelectedRow();
+          kt.jtnis.setText(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
+          kt.jtnama.setText(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
+          kt.jtalamat.setText(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
+          kt.jtnotelfon.setText(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
+          kt.jcjeniskelamin.setSelectedItem(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
+          kt.jckdjurusan.setSelectedItem(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
+          
+          kt.jbhapus.setEnabled(true);
+          kt.jbubah.setEnabled(true);
+          kt.jbsimpan.setEnabled(false);
+      }
+         
 }
 
 
