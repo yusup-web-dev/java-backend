@@ -22,6 +22,7 @@ public class form_biodata extends javax.swing.JFrame {
         new code_biodata().tampildata(this);
         new code_biodata().tampil_jurusan(this);
         new code_biodata().cari_data(this);
+        
     }
 
     /**
@@ -119,9 +120,19 @@ public class form_biodata extends javax.swing.JFrame {
         getContentPane().add(jbtambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         jbubah.setText("Ubah");
+        jbubah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbubahActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbubah, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         jbhapus.setText("Hapus");
+        jbhapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbhapusActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
 
         jbsimpan.setText("Simpan");
@@ -225,6 +236,16 @@ public class form_biodata extends javax.swing.JFrame {
         jbsimpan.setEnabled(false);
                 
     }//GEN-LAST:event_jtablebiodataMouseClicked
+
+    private void jbhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbhapusActionPerformed
+        // TODO add your handling code here:
+          new code_biodata().hapus(this);
+    }//GEN-LAST:event_jbhapusActionPerformed
+
+    private void jbubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbubahActionPerformed
+        // TODO add your handling code here:
+        new code_biodata().ubah(this);
+    }//GEN-LAST:event_jbubahActionPerformed
 
     /**
      * @param args the command line arguments

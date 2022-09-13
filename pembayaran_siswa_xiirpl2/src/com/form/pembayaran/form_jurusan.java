@@ -20,6 +20,9 @@ public class form_jurusan extends javax.swing.JFrame {
         new code_jurusan().kunci(this);
         new code_jurusan().bersih(this);
         new code_jurusan().tampildata(this);
+        new code_jurusan().cari_data(this);
+
+
     }
 
     /**
@@ -95,9 +98,19 @@ public class form_jurusan extends javax.swing.JFrame {
         getContentPane().add(jbtambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         jbubah.setText("Ubah");
+        jbubah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbubahActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbubah, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
 
         jbhapus.setText("Hapus");
+        jbhapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbhapusActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbhapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
         jbsimpan.setText("Simpan");
@@ -119,6 +132,11 @@ public class form_jurusan extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtablejurusan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtablejurusanMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtablejurusan);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 350, 150));
@@ -139,6 +157,11 @@ public class form_jurusan extends javax.swing.JFrame {
         getContentPane().add(jtjmlkelas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 190, -1));
 
         jtcarikdjurusan.setText("jTextField5");
+        jtcarikdjurusan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtcarikdjurusanActionPerformed(evt);
+            }
+        });
         getContentPane().add(jtcarikdjurusan, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 140, -1));
 
         jbclose.setText("Close");
@@ -160,15 +183,42 @@ public class form_jurusan extends javax.swing.JFrame {
 
     private void jbtambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtambahActionPerformed
         // TODO add your handling code here:
-         new code_jurusan().bersih(this);
+        new code_jurusan().bersih(this);
         new code_jurusan().buka_kunci(this);
     }//GEN-LAST:event_jbtambahActionPerformed
 
     private void jbsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsimpanActionPerformed
         // TODO add your handling code here:
-         new code_jurusan().simpan(this);
+           new code_jurusan().simpan(this);
            new code_jurusan().bersih(this);
     }//GEN-LAST:event_jbsimpanActionPerformed
+
+    private void jtcarikdjurusanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtcarikdjurusanActionPerformed
+        // TODO add your handling code here:
+           new code_jurusan().cari_data(this);
+           new code_jurusan().buka_kunci(this);
+           jbubah.setEnabled(true);
+           jbhapus.setEnabled(true);
+           jbsimpan.setEnabled(false);
+    }//GEN-LAST:event_jtcarikdjurusanActionPerformed
+
+    private void jtablejurusanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtablejurusanMouseClicked
+        // TODO add your handling code here:
+         new code_jurusan().klik_table(this);
+         new code_jurusan().buka_kunci(this);
+         jbsimpan.setEnabled(false);
+        
+    }//GEN-LAST:event_jtablejurusanMouseClicked
+
+    private void jbhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbhapusActionPerformed
+        // TODO add your handling code here:
+        new code_jurusan().hapus(this);
+    }//GEN-LAST:event_jbhapusActionPerformed
+
+    private void jbubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbubahActionPerformed
+        // TODO add your handling code here:
+        new code_jurusan().ubah(this);
+    }//GEN-LAST:event_jbubahActionPerformed
 
     /**
      * @param args the command line arguments

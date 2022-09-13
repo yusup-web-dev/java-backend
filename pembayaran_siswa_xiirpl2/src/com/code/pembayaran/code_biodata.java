@@ -186,17 +186,52 @@ public class code_biodata {
       public void klik_table(form_biodata kt) {
           int row = kt.jtablebiodata.getSelectedRow();
           kt.jtnis.setText(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
-          kt.jtnama.setText(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
-          kt.jtalamat.setText(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
-          kt.jtnotelfon.setText(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
-          kt.jcjeniskelamin.setSelectedItem(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
-          kt.jckdjurusan.setSelectedItem(kt.jtablebiodata.getModel().getValueAt(row,0).toString());
+          kt.jtnama.setText(kt.jtablebiodata.getModel().getValueAt(row,1).toString());
+          kt.jtalamat.setText(kt.jtablebiodata.getModel().getValueAt(row,2).toString());
+          kt.jtnotelfon.setText(kt.jtablebiodata.getModel().getValueAt(row,3).toString());
+          kt.jcjeniskelamin.setSelectedItem(kt.jtablebiodata.getModel().getValueAt(row,4).toString());
+          kt.jckdjurusan.setSelectedItem(kt.jtablebiodata.getModel().getValueAt(row,5).toString());
           
           kt.jbhapus.setEnabled(true);
           kt.jbubah.setEnabled(true);
           kt.jbsimpan.setEnabled(false);
       }
          
+     public void ubah(form_biodata u) {
+          try {
+              Statement stat = con.createStatement();
+              String sql = "update biodata set nama = '" + u.jtnama.getText()
+                      +"',"+" alamat = '" + u.jtalamat.getText()
+                      +"',"+" no_telpon = '" + u.jtnotelfon.getText()
+                      +"',"+" jenis_kelamin = '" + u.jcjeniskelamin.getSelectedItem()
+                      +"',"+" kd_jurusan = '" + u.jckdjurusan.getSelectedItem()
+                      +"'"+ "where nis = '" + u.jtnis.getText()+ "'";
+              stat.executeUpdate(sql);
+              bersih(u);
+              tampildata(u);
+              JOptionPane.showMessageDialog(null, "Data telah diubah");
+              u.jbsimpan.setEnabled(true);
+              u.jbubah.setEnabled(false);
+              u.jbhapus.setEnabled(false);
+          }catch (Exception e) {
+              JOptionPane.showMessageDialog(null, "Data gagal diubah", "Error", JOptionPane.ERROR_MESSAGE);
+              System.out.println(e.getMessage());
+          }
+      }
+      
+      public void hapus(form_biodata h) {
+          try {
+              int pesan = JOptionPane.showConfirmDialog(null, "Yakin ingin Dihapus??","konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+              if (pesan == JOptionPane.YES_OPTION) {
+                  Statement stat = con.createStatement();
+                  stat.executeUpdate("delete from biodata where nis='" + h.jtnis.getText()+"'");
+              } 
+              bersih(h);
+              tampildata(h);
+          }catch (Exception e) {
+              JOptionPane.showMessageDialog(null, "Gagal Hapus" + e);
+          }
+      }
 }
 
 
